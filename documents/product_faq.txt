@@ -1,0 +1,19 @@
+Acme Robotics — TidyBot 3000 Product FAQ
+
+Q: How long does the TidyBot 3000's battery last on a single charge?
+A: The TidyBot 3000 runs for approximately 90 minutes of continuous cleaning
+on a full charge, and takes 3 hours to fully recharge from empty.
+
+Q: Is the TidyBot 3000 safe to use around pets?
+A: Yes. The TidyBot 3000 uses infrared proximity sensors to detect pets and
+will automatically stop and reroute around them. It also emits a low-frequency
+alert tone that most cats and dogs will simply ignore.
+
+Q: What is the warranty period?
+A: The TidyBot 3000 ships with a 2-year limited warranty covering
+manufacturing defects. Battery degradation below 70% capacity within the
+first 12 months is also covered.
+
+Q: Can the TidyBot 3000 clean stairs?
+A: No. The TidyBot 3000 is designed for single-level flooring only and has
+cliff-detection sensors that will stop it at the edge of a staircase.

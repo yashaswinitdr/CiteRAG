@@ -1,0 +1,16 @@
+Acme Robotics — Employee Vacation Policy
+
+All full-time employees accrue 18 days of paid vacation per calendar year.
+Vacation accrual begins on the employee's start date and is prorated for
+partial years. Unused vacation days may be carried over into the following
+year, up to a maximum carryover of 5 days.
+
+Employees must submit vacation requests through the HR portal at least 10
+business days in advance for any leave longer than 3 consecutive days.
+Requests shorter than 3 days require only 2 business days notice.
+
+Vacation requests during the last two weeks of December require manager
+approval at least 30 days in advance due to holiday staffing constraints.
+
+Part-time employees accrue vacation on a prorated basis according to their
+scheduled weekly hours, calculated as (weekly hours / 40) * 18 days.
