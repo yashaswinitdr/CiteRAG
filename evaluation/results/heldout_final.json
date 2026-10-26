@@ -1,0 +1,240 @@
+﻿{
+  "summary": {
+    "llm": "qwen2.5:7b",
+    "retrieval_mode": "hybrid_rerank",
+    "k": 5,
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "db": "chroma_db",
+    "answerable_passed": 8,
+    "answerable_total": 12,
+    "unanswerable_passed": 4,
+    "unanswerable_total": 4,
+    "retrieval_hit_rate": 0.667,
+    "failures_retrieval_miss": 3,
+    "failures_generation_error": 1,
+    "baseline_correct": 1
+  },
+  "records": [
+    {
+      "id": "h-rag-1",
+      "type": "answerable",
+      "question": "How many documents result from splitting Wikipedia into 100-word chunks in RAG?",
+      "answer": "The documents do not contain this information.",
+      "sources": [],
+      "retrieval_hit": true,
+      "answer_correct": false,
+      "source_correct": false,
+      "passed": false,
+      "failure": "generation_error",
+      "baseline_answer": "I don't know the exact number of documents resulting from splitting Wikipedia into 100-word chunks in RAG (Retrieval-Augmented Generation) because the total number would depend on the size of the Wikipedia corpus being used. The number of documents would be the total number of 100-word chunks extracted from the entire Wikipedia text.",
+      "baseline_correct": false
+    },
+    {
+      "id": "h-rag-2",
+      "type": "answerable",
+      "question": "Which library does RAG use to build its MIPS index?",
+      "answer": "The library used to build the MIPS index for RAG is FAISS, as mentioned in the context: \"We use the document encoder to compute an embedding for each document, and build a single MIPS index using FAISS [23] with a Hierarchical Navigable Small World approximation for fast retrieval [37].\"",
+      "sources": [
+        "gao2023_rag_survey.pdf",
+        "lewis2020_rag.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "I do not know which specific library RAG uses to build its MIPS index. Without additional context about the exact implementation or system you are referring to, I cannot provide a precise answer.",
+      "baseline_correct": false
+    },
+    {
+      "id": "h-rag-3",
+      "type": "answerable",
+      "question": "Which knowledge-intensive generation tasks did the RAG authors experiment with?",
+      "answer": "The RAG authors experimented with a wide range of knowledge-intensive NLP tasks. This includes open domain QA tasks where they set the state-of-the-art performance.",
+      "sources": [
+        "gao2023_rag_survey.pdf",
+        "lewis2020_rag.pdf"
+      ],
+      "retrieval_hit": false,
+      "answer_correct": false,
+      "source_correct": true,
+      "passed": false,
+      "failure": "retrieval_miss",
+      "baseline_answer": "The Research Assistant Generative (RAG) model, developed by researchers at Facebook AI, was experimented with on various knowledge-intensive generation tasks. These tasks typically include question answering, summarization, and text generation. The authors tested RAG's capabilities across different domains and types of input, aiming to evaluate its performance in generating coherent and accurate responses using external knowledge sources.",
+      "baseline_correct": false
+    },
+    {
+      "id": "h-sbert-1",
+      "type": "answerable",
+      "question": "Which datasets is SBERT trained on?",
+      "answer": "SBERT is trained on the SNLI and Multi-NLI datasets for the classification objective function, and on the STSb dataset for the regression objective function.",
+      "sources": [
+        "reimers2019_sbert.pdf"
+      ],
+      "retrieval_hit": false,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "SBERT (Sentence-BERT) is typically trained on a combination of datasets, primarily using the STS-B dataset for sentence similarity and a large corpus of text from Wikipedia for general language understanding. However, the exact datasets can vary depending on the specific implementation or version of SBERT.",
+      "baseline_correct": false
+    },
+    {
+      "id": "h-sbert-2",
+      "type": "answerable",
+      "question": "What is the default pooling strategy of SBERT?",
+      "answer": "The default pooling strategy of SBERT is MEAN. This is stated in the context where it mentions, \"Our default pooling strategy is MEAN.\"",
+      "sources": [
+        "reimers2019_sbert.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "I do not know the specific default pooling strategy for SBERT (Sentence-BERT) off the top of my head. SBERT is built on top of BERT and uses sentence embeddings, but the exact default pooling method used is not commonly specified in basic descriptions. For precise information, referring to the SBERT documentation or source code would be recommended.",
+      "baseline_correct": false
+    },
+    {
+      "id": "h-sbert-3",
+      "type": "answerable",
+      "question": "What batch size is used to fine-tune SBERT?",
+      "answer": "The batch size used to fine-tune SBERT is 16.",
+      "sources": [
+        "karpukhin2020_dpr.pdf",
+        "reimers2019_sbert.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "The batch size used for fine-tuning SBERT can vary depending on the specific use case and the hardware being used. Common batch sizes range from 4 to 32. Larger batch sizes can lead to faster training but require more memory.",
+      "baseline_correct": false
+    },
+    {
+      "id": "h-sbert-4",
+      "type": "answerable",
+      "question": "How many sentence pairs does the SNLI dataset contain?",
+      "answer": "The SNLI dataset contains 570,000 sentence pairs.",
+      "sources": [
+        "reimers2019_sbert.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "The SNLI dataset contains approximately 570,000 sentence pairs.",
+      "baseline_correct": true
+    },
+    {
+      "id": "h-dpr-1",
+      "type": "answerable",
+      "question": "How does DPR define the similarity between a question and a passage?",
+      "answer": "DPR defines the similarity between a question and a passage using the dot product of their vectors: sim(q,p ) = EQ(q)\u22baEP (p).",
+      "sources": [
+        "karpukhin2020_dpr.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "I do not know the specific details of how DPR (Dynamic Reading) defines the similarity between a question and a passage. DPR is a model used for reading comprehension, but the exact definition of similarity it uses is not part of my general knowledge.",
+      "baseline_correct": false
+    },
+    {
+      "id": "h-dpr-2",
+      "type": "answerable",
+      "question": "Which library does DPR use to index the passage embeddings?",
+      "answer": "DPR uses FAISS to index the passage embeddings offline.",
+      "sources": [
+        "karpukhin2020_dpr.pdf",
+        "lewis2020_rag.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "I do not know which specific library DPR uses to index passage embeddings, as the details can vary based on the implementation and the sources available at the time of development. DPR (Dual Encoder Pre-Training for Natural Language Understanding) is generally associated with BERT and its dual encoder approach, but the exact embedding indexing library is not a publicly detailed aspect of the model.",
+      "baseline_correct": false
+    },
+    {
+      "id": "h-survey-1",
+      "type": "answerable",
+      "question": "What does HyDE stand for in the RAG survey?",
+      "answer": "The documents do not contain this information.",
+      "sources": [],
+      "retrieval_hit": false,
+      "answer_correct": false,
+      "source_correct": false,
+      "passed": false,
+      "failure": "retrieval_miss",
+      "baseline_answer": "HyDE in the RAG survey stands for \"Harmonized Data Exchange.\"",
+      "baseline_correct": false
+    },
+    {
+      "id": "h-survey-2",
+      "type": "answerable",
+      "question": "Which kinds of search does hybrid retrieval integrate according to the survey?",
+      "answer": "Hybrid retrieval strategies integrate keyword, semantic, and vector searches according to the survey.",
+      "sources": [
+        "gao2023_rag_survey.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "According to common definitions, hybrid retrieval integrates both full-text retrieval and keyword-based retrieval. However, without referencing a specific survey, I cannot provide details from that source. Hybrid retrieval systems combine multiple search techniques to improve the relevance and coverage of search results.",
+      "baseline_correct": false
+    },
+    {
+      "id": "h-lost-1",
+      "type": "answerable",
+      "question": "Which language models did the Lost in the Middle authors test?",
+      "answer": "The Lost in the Middle authors tested Transformer language models. This can be inferred from the context mentioning \"Transformer language models\" in relation to the study.",
+      "sources": [
+        "gao2023_rag_survey.pdf",
+        "liu2023_lost_in_the_middle.pdf"
+      ],
+      "retrieval_hit": false,
+      "answer_correct": false,
+      "source_correct": true,
+      "passed": false,
+      "failure": "retrieval_miss",
+      "baseline_answer": "I do not know which specific language models the authors of \"Lost in the Middle\" tested, as I do not have detailed information about their study. The title \"Lost in the Middle\" does not provide enough context to identify the specific research or the models used.",
+      "baseline_correct": false
+    },
+    {
+      "id": "h-none-1",
+      "type": "unanswerable",
+      "question": "Who wrote the novel Pride and Prejudice?",
+      "answer": "The documents do not contain this information.",
+      "sources": [],
+      "refused": true,
+      "passed": true
+    },
+    {
+      "id": "h-none-2",
+      "type": "unanswerable",
+      "question": "What is the boiling point of water at sea level in Fahrenheit?",
+      "answer": "The documents do not contain this information.",
+      "sources": [],
+      "refused": true,
+      "passed": true
+    },
+    {
+      "id": "h-none-3",
+      "type": "unanswerable",
+      "question": "How many parameters does GPT-4 have?",
+      "answer": "The documents do not contain this information.",
+      "sources": [],
+      "refused": true,
+      "passed": true
+    },
+    {
+      "id": "h-none-4",
+      "type": "unanswerable",
+      "question": "What is the population of Canada?",
+      "answer": "The documents do not contain this information.",
+      "sources": [],
+      "refused": true,
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,376 @@
+﻿{
+  "summary": {
+    "llm": "qwen2.5:7b",
+    "retrieval_mode": "hybrid_rerank",
+    "k": 5,
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "db": "chroma_db",
+    "answerable_passed": 20,
+    "answerable_total": 21,
+    "unanswerable_passed": 4,
+    "unanswerable_total": 4,
+    "retrieval_hit_rate": 0.905,
+    "failures_retrieval_miss": 0,
+    "failures_generation_error": 1,
+    "baseline_correct": 2
+  },
+  "records": [
+    {
+      "id": "sbert-1",
+      "type": "answerable",
+      "question": "How many inference computations does BERT need to find the most similar pair in a collection of 10,000 sentences?",
+      "answer": "Finding the most similar pair in a collection of 10,000 sentences requires about 50 million inference computations with BERT.",
+      "sources": [
+        "reimers2019_sbert.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "I don't know the exact number of inference computations BERT needs for this task, as it depends on various factors such as the specific implementation, hardware used, and the exact method of comparison. However, generally, BERT would need to make multiple forward passes through its neural network architecture to compare each sentence with every other sentence in the collection. For 10,000 sentences, this would involve approximately 49,990,000 comparisons (10,000 * (10,000 - 1) / 2), but the actual number of computations per comparison would depend on BERT's architecture and input size.",
+      "baseline_correct": false
+    },
+    {
+      "id": "sbert-2",
+      "type": "answerable",
+      "question": "How long does finding the most similar pair of sentences take with SBERT, compared with BERT?",
+      "answer": "Finding the most similar pair of sentences takes about 5 seconds with SBERT, compared to 65 hours with BERT.",
+      "sources": [
+        "reimers2019_sbert.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "The time it takes to find the most similar pair of sentences using SBERT (Sentence-BERT) versus BERT (Bidirectional Encoder Representations from Transformers) can vary, but generally, SBERT is expected to be slower. This is because SBERT is specifically designed to handle sentence-level tasks and uses a pooling mechanism to aggregate the sentence embeddings, which can be computationally more intensive than the token-level operations used by BERT for similar tasks. However, the exact time difference would depend on the specific implementation, hardware, and the size of the input data.",
+      "baseline_correct": false
+    },
+    {
+      "id": "sbert-3",
+      "type": "answerable",
+      "question": "What kind of network structures does Sentence-BERT use to derive sentence embeddings?",
+      "answer": "Sentence-BERT uses siamese and triplet network structures to derive semantically meaningful sentence embeddings.",
+      "sources": [
+        "reimers2019_sbert.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "Sentence-BERT uses a network structure that involves a transformer-based model, specifically a variant of BERT (Bidirectional Encoder Representations from Transformers). It processes sentences in a bidirectional manner, capturing the context around words from both left and right. Sentence-BERT then uses these contextual embeddings to derive sentence-level embeddings by pooling information from the token embeddings, typically using methods like mean pooling.",
+      "baseline_correct": false
+    },
+    {
+      "id": "sbert-4",
+      "type": "answerable",
+      "question": "What similarity measure is used to compare SBERT sentence embeddings?",
+      "answer": "SBERT uses cosine-similarity to compare sentence embeddings. This is explicitly stated in the context: \"Instead, we always use cosine-similarity to compare the similarity between two sentence embeddings.\"",
+      "sources": [
+        "reimers2019_sbert.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "To compare SBERT (Sentence-BERT) sentence embeddings, the cosine similarity measure is commonly used.",
+      "baseline_correct": true
+    },
+    {
+      "id": "dpr-1",
+      "type": "answerable",
+      "question": "By how much does the dense retriever outperform BM25 in top-20 passage retrieval accuracy?",
+      "answer": "The dense retriever outperforms BM25 by 9%-19% absolute in top-20 passage retrieval accuracy.",
+      "sources": [
+        "karpukhin2020_dpr.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "I do not know the specific performance difference between the dense retriever and BM25 in top-20 passage retrieval accuracy without referring to a reliable source or study that provides these exact metrics.",
+      "baseline_correct": false
+    },
+    {
+      "id": "dpr-2",
+      "type": "answerable",
+      "question": "What encoder framework does Dense Passage Retrieval use to learn embeddings?",
+      "answer": "Dense Passage Retrieval uses a dual-encoder framework to learn embeddings from a small number of questions and passages.",
+      "sources": [
+        "karpukhin2020_dpr.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "Dense Passage Retrieval typically uses transformer-based models from the Hugging Face Transformers library to learn embeddings. Models like BERT, RoBERTa, or DistilBERT are commonly used for this purpose.",
+      "baseline_correct": false
+    },
+    {
+      "id": "dpr-3",
+      "type": "answerable",
+      "question": "Which three types of negative passages does DPR consider for training?",
+      "answer": "DPR considers three types of negative passages: Random, BM25, and Gold. The context states: \"We consider three different types of negatives: (1) Random: any random passage from the corpus; (2) BM25: top passages returned by BM25 which don\u2019t contain the answer but match most question tokens; (3) Gold: positive passages paired with other questions which appear in the training set.\"",
+      "sources": [
+        "karpukhin2020_dpr.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "DPR (Dense Passage Retrieval) typically considers three types of negative passages for training: hard negatives, easy negatives, and random negatives. These are used to improve the model's ability to distinguish relevant from irrelevant passages.",
+      "baseline_correct": false
+    },
+    {
+      "id": "dpr-4",
+      "type": "answerable",
+      "question": "What negatives does the best DPR model use?",
+      "answer": "The best DPR model uses gold passages from the same mini-batch and one BM25 negative passage.",
+      "sources": [
+        "karpukhin2020_dpr.pdf",
+        "lewis2020_rag.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "The best Direct Positive Reversal (DPR) film models typically use silver halide crystals as the light-sensitive material. These films do not use any traditional negative film layers; instead, they are designed to produce a positive image directly on the film base when exposed and developed. Therefore, they do not use any negatives in the conventional sense.",
+      "baseline_correct": false
+    },
+    {
+      "id": "rag-1",
+      "type": "answerable",
+      "question": "What is the difference between RAG-Sequence and RAG-Token?",
+      "answer": "RAG-Sequence uses the same document to predict each target token, while RAG-Token can predict each target token based on a different document.",
+      "sources": [
+        "lewis2020_rag.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "RAG-Sequence and RAG-Token are not standard terms in the field of natural language processing or machine learning. It's possible you might be referring to concepts related to RAG (Retrieval-Augmented Generation) models, but with specific terms like \"Sequence\" and \"Token\" that are not commonly used in this context. \n\nIn general, in the context of RAG models, \"tokens\" refer to the smallest units of text that are processed by the model, such as words or subwords. \"Sequences\" could refer to the input or output sequences of tokens that the model processes or generates. However, without more context, it's difficult to provide a precise definition for RAG-Sequence and RAG-Token. If you have a specific model or framework in mind, please provide more details for a more accurate explanation.",
+      "baseline_correct": false
+    },
+    {
+      "id": "rag-2",
+      "type": "answerable",
+      "question": "Which sequence-to-sequence model does RAG use as its generator?",
+      "answer": "RAG uses the BART generator as its sequence-to-sequence model. This is implied by the context where it mentions fine-tuning the BART generator along with the query encoder BERTq.",
+      "sources": [
+        "lewis2020_rag.pdf"
+      ],
+      "retrieval_hit": false,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "RAG (Retrieval-Augmented Generation) uses a transformer-based sequence-to-sequence model as its generator. Specifically, it employs a model like T5 or BART for generating the final response after retrieving relevant information from a knowledge store.",
+      "baseline_correct": true
+    },
+    {
+      "id": "rag-3",
+      "type": "answerable",
+      "question": "What is the non-parametric memory in RAG?",
+      "answer": "The non-parametric memory in RAG is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever.",
+      "sources": [
+        "lewis2020_rag.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "I don't know specifically what \"non-parametric memory in RAG\" refers to, as this terminology is not standard in the context of RAG (Retrieval-Augmented Generation). Could you provide more context or clarify the terms? RAG typically refers to a technique where models use external retrievable knowledge sources, but \"non-parametric memory\" is not a commonly used phrase in this context.",
+      "baseline_correct": false
+    },
+    {
+      "id": "rag-4",
+      "type": "answerable",
+      "question": "What search method does RAG use to find the top-K documents?",
+      "answer": "RAG uses Maximum Inner Product Search (MIPS) to find the top-K documents for each query.",
+      "sources": [
+        "gao2023_rag_survey.pdf",
+        "lewis2020_rag.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "RAG (Retrieval-Augmented Generation) typically uses a search method called retrieval to find the top-K documents. This usually involves techniques like similarity search, where documents are ranked based on their similarity to the query. The exact method can vary depending on the implementation, but it often includes techniques like cosine similarity, BM25, or even more advanced methods like those using deep learning for embedding.",
+      "baseline_correct": false
+    },
+    {
+      "id": "rag-5",
+      "type": "answerable",
+      "question": "Which Wikipedia dump does RAG use as its knowledge source?",
+      "answer": "RAG uses the December 2018 Wikipedia dump as its non-parametric knowledge source. This is mentioned in the context provided.",
+      "sources": [
+        "gao2023_rag_survey.pdf",
+        "lewis2020_rag.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "I do not know which specific Wikipedia dump RAG (Relevant Augmented Generation) uses as its knowledge source, as the exact details can vary and are not publicly documented.",
+      "baseline_correct": false
+    },
+    {
+      "id": "rag-6",
+      "type": "answerable",
+      "question": "How is the RAG retriever initialized?",
+      "answer": "The RAG retriever is initialized using DPR\u2019s retriever, which uses retrieval supervision on Natural Questions and TriviaQA.",
+      "sources": [
+        "gao2023_rag_survey.pdf",
+        "lewis2020_rag.pdf"
+      ],
+      "retrieval_hit": false,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "The RAG (Retrieval-Augmented Generation) retriever is initialized by setting up a retrieval component and a generative model. The retrieval component is typically initialized with a pre-trained encoder that encodes queries and document collections, allowing for relevance-based retrieval. The generative model, often a language model like those from the Transformer family, is initialized separately and then fine-tuned to generate responses informed by the retrieved documents.",
+      "baseline_correct": false
+    },
+    {
+      "id": "survey-1",
+      "type": "answerable",
+      "question": "What are the three stages of the RAG research paradigm described in the survey?",
+      "answer": "The three stages of the RAG research paradigm described in the survey are Naive RAG, Advanced RAG, and Modular RAG.",
+      "sources": [
+        "gao2023_rag_survey.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "I do not know the specific survey you are referring to or the exact details of the RAG research paradigm you mentioned. The acronym RAG could refer to various frameworks or models, and without more context, I cannot accurately describe its three stages.",
+      "baseline_correct": false
+    },
+    {
+      "id": "survey-2",
+      "type": "answerable",
+      "question": "What are the three steps of the representative RAG process for question answering?",
+      "answer": "The three steps of the representative RAG process for question answering are: 1) Indexing, where documents are split into chunks, encoded into vectors, and stored in a vector database; 2) Retrieval, where the Top k chunks most relevant to the question based on semantic similarity are retrieved; 3) The steps and details of the third step are not fully provided in the context.",
+      "sources": [
+        "gao2023_rag_survey.pdf",
+        "lewis2020_rag.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": false,
+      "source_correct": true,
+      "passed": false,
+      "failure": "generation_error",
+      "baseline_answer": "The three steps of the representative RAG (Retrieval-Augmented Generation) process for question answering are:\n\n1. **Retrieval**: The system retrieves relevant documents or passages from a large corpus that might contain the answer to the question.\n2. **Augmentation**: The retrieved information is used to augment the model's input, providing context that can help generate a more accurate and informed response.\n3. **Generation**: The model generates the final answer or response, incorporating the retrieved information to improve the quality and relevance of the answer.",
+      "baseline_correct": false
+    },
+    {
+      "id": "survey-3",
+      "type": "answerable",
+      "question": "What is the Naive RAG framework also called?",
+      "answer": "The Naive RAG framework is also characterized as a \u201cRetrieve-Read\u201d framework.",
+      "sources": [
+        "gao2023_rag_survey.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "The Naive RAG framework is also called a Naive Retrieval-Augmented Generation framework.",
+      "baseline_correct": false
+    },
+    {
+      "id": "survey-4",
+      "type": "answerable",
+      "question": "In Naive RAG, which model is used to encode the user query at retrieval time?",
+      "answer": "The same encoding model utilized during the indexing phase is employed to transform the user query into a vector representation at retrieval time.",
+      "sources": [
+        "gao2023_rag_survey.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "In Naive RAG (Retrieval-Augmented Generation), the user query is typically encoded using a pre-trained language model or a separate encoder model. However, the specific model used can vary depending on the implementation. Often, a model like BERT is used for encoding the user query because of its effectiveness in understanding the context and semantics of the input text.",
+      "baseline_correct": false
+    },
+    {
+      "id": "lost-1",
+      "type": "answerable",
+      "question": "Which two tasks do the authors use to analyze how language models use long contexts?",
+      "answer": "The authors use multi-document question answering and key-value retrieval to analyze how language models use long contexts.",
+      "sources": [
+        "liu2023_lost_in_the_middle.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "The authors use the next-token prediction task and the masked-language modeling task to analyze how language models use long contexts.",
+      "baseline_correct": false
+    },
+    {
+      "id": "lost-2",
+      "type": "answerable",
+      "question": "Where in the input context do language models perform best at using relevant information?",
+      "answer": "Language models perform best when relevant information occurs at the beginning or end of the input context. This is supported by the observation that performance degrades significantly when models must access and use information located in the middle of long contexts.",
+      "sources": [
+        "liu2023_lost_in_the_middle.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "Language models generally perform best at using relevant information when the context is clear and the input is concise. Relevant information is more effectively utilized when the surrounding text provides a strong and direct context.",
+      "baseline_correct": false
+    },
+    {
+      "id": "lost-3",
+      "type": "answerable",
+      "question": "What shape does the performance curve take as the position of relevant information changes?",
+      "answer": "The performance curve takes a U-shaped form as the position of relevant information changes within the model's input context.",
+      "sources": [
+        "liu2023_lost_in_the_middle.pdf"
+      ],
+      "retrieval_hit": true,
+      "answer_correct": true,
+      "source_correct": true,
+      "passed": true,
+      "baseline_answer": "The performance curve typically takes a bell-shaped or Gaussian distribution as the position of relevant information changes. This means the performance is highest when the relevant information is at the center and decreases as it moves away from the center, forming a peak in the middle and tails off on either side.",
+      "baseline_correct": false
+    },
+    {
+      "id": "none-1",
+      "type": "unanswerable",
+      "question": "What is the capital of France?",
+      "answer": "The documents do not contain this information.",
+      "sources": [],
+      "refused": true,
+      "passed": true
+    },
+    {
+      "id": "none-2",
+      "type": "unanswerable",
+      "question": "Who won the 2018 FIFA World Cup?",
+      "answer": "The documents do not contain this information.",
+      "sources": [],
+      "refused": true,
+      "passed": true
+    },
+    {
+      "id": "none-3",
+      "type": "unanswerable",
+      "question": "What was the exact dollar cost of training the Sentence-BERT model?",
+      "answer": "The documents do not contain this information.",
+      "sources": [],
+      "refused": true,
+      "passed": true
+    },
+    {
+      "id": "none-4",
+      "type": "unanswerable",
+      "question": "What recipe is recommended for baking sourdough bread?",
+      "answer": "The documents do not contain this information.",
+      "sources": [],
+      "refused": true,
+      "passed": true
+    }
+  ]
+}

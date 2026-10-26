@@ -5,6 +5,9 @@ langchain-chroma
 langchain-huggingface
 chromadb
 sentence-transformers
+rank-bm25
+ollama
+httpx
 pypdf
 fastapi
 uvicorn[standard]

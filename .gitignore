@@ -1,5 +1,8 @@
-venv/
-chroma_db/
+﻿venv/
+chroma_*/
 .env
 __pycache__/
 *.pyc
+.pytest_cache/
+documents/*.pdf
+
